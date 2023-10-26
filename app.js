@@ -28,27 +28,55 @@ const fs = require('fs/promises');
         try {
             const existingFile = await fs.open(path, 'r')
             if (existingFile){
-               await fs.deleteFile(path)
+               await fs.unlink(path);
+               console.log(`File ${path} deleted`);
+            } } 
+        catch (error) {
+            if (error.code ==='ENOENT'){
+                console.log('No such file exist....');
+            } else {
+                console.log('An error has occured!!...');
+                console.log(error);
             }
-        } catch (error) {
-            const fileToDelete = await fs.open(path, 'r');
-        };
-    }
+                }
+        }
 
     //rename file function
     const renameFile = async (oldPath, newPath) => {
         try {
-            const existingFile = await fs.open(oldPath, 'r')
-                await fs.rename(oldPath, newPath)
-        } catch (error) {
-            console.log(`${oldPath} does not exist, please try another....`);
+            await fs.open(oldPath, 'r')
+            await fs.rename(oldPath, newPath)
+            console.log(`File ${oldPath} renamed to ${newPath}`);
+        }
+         catch (error) {
+            if (error.code ==='ENOENT'){
+                console.log(`${oldPath} does not exist or destination does not exist, please try another....`);
+            } else {
+                console.log('An error has occured!!...');
+                console.log(error);
+            }
         };
 
     }
 
 
     // add to file function
-    const addToFile = async (path, content) => {}
+    const addToFile = async (path, content) => {
+        try {
+            const fileHandle = await fs.open(path, 'a')
+            fileHandle.write(content)
+            console.log(`File ${path} is updated with [ *** ${content} *** ]`);
+        }
+         catch (error) {
+            if (error.code ==='ENOENT'){
+                console.log(`${path} does not exist, please try another....`);
+            } else {
+                console.log('An error has occured!!...');
+                console.log(error);
+            }
+        };
+
+    }
 
     commandHandler.on('change', async () => {
         //get the size of the file
@@ -108,6 +136,5 @@ const fs = require('fs/promises');
             commandHandler.emit('change')
         }
     }
-
 })
 })();

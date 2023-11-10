@@ -1,1 +1,2 @@
 # still working on it's documentation
+*streams* - a folder that explains the filesystem (fs) in nodejs which helps with space and time complexities when it comes to both memory usuage and the processor.

@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "tsc streams/app.ts",
+    "build": "tsc",
+    "build:local": "tsc streams/app.ts",
     "start": "ts-node streams/app.ts"
   },
   "keywords": [],

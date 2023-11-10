@@ -28,5 +28,5 @@ var deleteFile = function (Data) {
         });
     }
 };
-deleteFile('Dare.js');
+deleteFile('Dare.txt');
 // fs.unlinkSync('come.txt')

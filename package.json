@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "build": "tsc",
-    "build:local": "tsc streams/app.ts",
-    "start": "ts-node streams/app.ts"
+    "build:local": "tsc",
+    "start": "ts-node ./closures/closures.ts"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +15,6 @@
     "node": "^21.1.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
-  }
+  },
+  "type": "module"
 }

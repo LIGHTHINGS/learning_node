@@ -28,6 +28,3 @@ const myCustomClosure2 = (data2:string) => {
 myCustomClosure('Dara');
 
 const Dare = myCustomClosure('Dare');
-
-Dare.newInnerFunc();
-Dare.anotherFunc();

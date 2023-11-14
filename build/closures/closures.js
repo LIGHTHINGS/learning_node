@@ -13,8 +13,9 @@ const myCustomClosure2 = (data2) => {
         console.log(`Hi there ${data2}..from second closure example`);
     };
     const anotherFunc = () => {
-        console.log(`${data2} dhould be feeling better now`);
+        console.log(`${data2} should be feeling better now`);
     };
+    // does not seem to work except on browers
     return {
         newInnerFunc,
         anotherFunc
@@ -22,5 +23,3 @@ const myCustomClosure2 = (data2) => {
 };
 myCustomClosure('Dara');
 const Dare = myCustomClosure('Dare');
-Dare.newInnerFunc();
-Dare.anotherFunc();

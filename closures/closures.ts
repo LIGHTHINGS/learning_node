@@ -18,7 +18,7 @@ const myCustomClosure2 = (data2:string) => {
     const anotherFunc = () => {
         console.log(`${data2} should be feeling better now`);
     }
-
+// does not seem to work except on browers
     return {
         newInnerFunc,
         anotherFunc
